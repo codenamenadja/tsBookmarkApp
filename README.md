@@ -39,3 +39,10 @@
                 5.@types/method-override
                 6.@types/morgan
                 7.@types/jquery
+    
+    4.config ts-configs
+        A.addtional settings
+            1.module:commonjs
+            2.target:es5
+            3.types includes : jquery
+            4.compile excludes: "node_module" dir
