@@ -46,3 +46,13 @@
             2.target:es5
             3.types includes : jquery
             4.compile excludes: "node_module" dir
+
+    5.setup common API
+        A.common/types/Item.ts
+            -북마크 아이템에 대한 인터페이스 export
+        B.common/types/Iresponse.ts // imports A
+            -북마크 아이템 등록성공여부와 해당 아이템의 인터페이스를 포함한 서버-response 인터페이스 export
+        C.common/validator.ts
+            -URL이 유효한 지 검증하는 함수 export
+        D.common/template.ts // imports A
+            -DOM요소에 프레임이 되는 DIV포함 ITEM을 순회 배치하여 string으로 통으로 돌려주는 함수 export
