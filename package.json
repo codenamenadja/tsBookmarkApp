@@ -37,6 +37,13 @@
     "webpack": "^4.28.3"
   },
   "dependencies": {
+    "@types/body-parser": "^1.17.0",
+    "@types/cookie-parser": "^1.4.1",
+    "@types/errorhandler": "0.0.32",
+    "@types/express": "^4.16.0",
+    "@types/jquery": "^3.3.29",
+    "@types/method-override": "0.0.31",
+    "@types/morgan": "^1.7.35",
     "body-parser": "^1.18.3",
     "cookie-parser": "^1.4.3",
     "ejs": "^2.6.1",

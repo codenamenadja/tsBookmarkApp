@@ -28,3 +28,14 @@
                 10.ts-loader
                 11.webpack
                 12.grunt-browser-sync
+    
+    3.npm setting
+        A.definition packages installation via npm
+            -dep
+                1.@types/express
+                2.@types/body-parser
+                3.@types/cookie-parser
+                4.@types/errorhandler
+                5.@types/method-override
+                6.@types/morgan
+                7.@types/jquery
