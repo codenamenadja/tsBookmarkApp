@@ -1,0 +1,26 @@
+{
+  "name": "ts-bookmark",
+  "version": "1.0.0",
+  "description": "ts based bookmark-webapp",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codenamenadja/tsBookmarkApp.git"
+  },
+  "keywords": [
+    "typescript",
+    "bookmark"
+  ],
+  "author": "junehan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/codenamenadja/tsBookmarkApp/issues"
+  },
+  "homepage": "https://github.com/codenamenadja/tsBookmarkApp#readme",
+  "devDependencies": {
+    "typescript": "^3.2.2"
+  }
+}
