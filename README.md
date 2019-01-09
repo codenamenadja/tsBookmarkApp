@@ -85,3 +85,43 @@
             }
             2.private config(), private routes()
                 - 외부에서 접근 할 수 없도록 하여, bootstrap().app을 통하면 다시 this(Server클래스).app만을 리턴하도록 하여, class는 더이상 유효하지 않다. 
+        
+        8.server.ts에서 불러온 appRoutes 모듈과 공통기능의 baseRoutes모듈
+            A. BaseRoute, controllers/index 모듈 외에 express { NextFunction, Request, Response, Router } 불러옴.
+            B.해당 모듈은 AppRoutes 클래스를 export
+            C.AppRoutes클래스 구성
+                -BaseRoute를 extends함.
+                    1.BaseRoute는 의존모듈이 없이, Response, Request만을 express에서 불러옴
+                    2.protected title:string, private scripts: string[]
+                    3.constructor(){this.title="typescript based server"}
+                    4.public addscript(src:string):BaseRoute
+                        -src를 받아 scripts(private)로 push함
+                    5.public render(req,res,view,options)
+                        -res에 대한 기본설정(res.locals)인 BASE_URL, scripts, title을 진행
+                        -최종적으로 res.render(view,option)을 진행하는 메서드를 가지고 있다.
+                    end: BaseRoute모듈은 res에 대한 공통되는 설정(헤더의 역할)과 공통되는 메서드인 render메서드에 대한 로직만 제공되는 라우팅기능의 부모 클래스이며, render(view)의 메서드만 보유할 뿐 페이로드는 존재하지 않는다.
+                -contructor내에서 super()을 통한 상속
+                -public static create(router:Router){
+                    실제적인 주소에 대한 라우팅 정보를 담고 있다. 
+                    router.route("/").get();
+                        -컨트롤러의 index모듈에서 불러온 실제 페이로드를 포함해 최종 렌더링(appRoute ->
+                        IndexRoute()의존 ->
+                        IndexRouter.renderView() ->
+                        let listArr = new ItemList().getList() 데이터 받아옴 ->
+                        let listHTML:string = template.getItemTemplate(북마크데이터) ->
+                        let options:Object = { title:title, listHTML: listHTML} 구성 ->
+                        this.render(req,res,"index", options) ->
+                        여기서 this.render은 BaseRoutes.render()을 향함)
+                    router.route("/add").post();
+                        (appRoute의 라우팅 논리회로 ->
+                        IndexRoute().add를 통해 req.body에 있는 페이로드 첨가 ->
+                        indexRoute().add내의 최종 res.send(response) ->
+                        종료
+                            :response에는 Iresponse.IresponseItem에 해당하는 
+                            {
+                            success:boolean,
+                            item: item(req.body.item)
+                            }
+                            를 돌려보냄으로서 통신이 성공했는지 여부를 전달.
+                        )
+                }
