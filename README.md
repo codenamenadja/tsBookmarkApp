@@ -125,3 +125,12 @@
                             를 돌려보냄으로서 통신이 성공했는지 여부를 전달.
                         )
                 }
+
+        9.ejs엔진의 views설정
+            A.8번에서 appRoute -> IndexRouter.renderView()는 
+            this(BaseRoute).render(req,res,"index",options); 을 통해
+            렌더링의 마무리를 지었다.
+            여기서 "index"라고 함이 views내의 index.ejs를 의미.
+            B.이 파일은 예시 파일을 일단 복사하도록 한다.
+                -html의 dom구성과 data-binding만 잘 참고하자.
+            
