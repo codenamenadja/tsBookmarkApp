@@ -68,3 +68,20 @@
             1.httpServer.createServer(app);
             2.httpServer.listen(httpPort);
         C.httpserver.on("error", errorHandler), ("listening", listeningHandler)에 대한 처리를 해준다.
+
+    7.server.ts (express app을 클래스로 생성할 수 있도록하고 export하는 모듈)
+        A.body-parser, cookie-parser, express ,morgan, path, errorhandler, method-override, (routes/appRoutes 에서 생성, 가공하는 클래스화)express.Router모듈 불러옴
+        B.Server클래스을 export한다.
+        C.Server클래스의 구성
+            1.public static bootstrap():Server
+                - 해당 클래스의 인스턴스를 생성해서 return.
+            2.constructor(){
+                this.app = express();
+                    -new Server()이 아닌 Server.bootstrap()을 통해 생성하도록 함.(싱글턴객체 아님);
+                this.config();
+                    - express 앱에 대한 미들웨어 처리
+                this.routes();
+                    - express 앱의 express.Router 모듈 내장.
+            }
+            2.private config(), private routes()
+                - 외부에서 접근 할 수 없도록 하여, bootstrap().app을 통하면 다시 this(Server클래스).app만을 리턴하도록 하여, class는 더이상 유효하지 않다. 
