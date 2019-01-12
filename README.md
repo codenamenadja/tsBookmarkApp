@@ -146,3 +146,12 @@
                 3.번들링(웹팩 어플리케이션 컴파일 후 번들링후 dist에 저장)
                 4.어플리케이션  실행(브라우저 콘솔, 서버CLI를 통한 디버깅)
         
+        12.error
+            A.클라이언트로직에서 Jquery에서 DomObject.val() 에 대한 리턴값이, not only string.
+                -validator에서 (url)매개변수의 타입이 stirng만 받도록 하고 있기 때문에, val이 string[]을 허용하지 않는 string하나라고 가정해야한다는 점.
+                -일단 .val().toString()으로 클라이언트 측 타입을 강제로 string으로만 고정하도록 함.
+            B.grunt설정에서 rootDir의 부재
+                -grunt - tsconfig 에서 outDir이 존재하는데, rootDir이 존자해지 않는 점에 대해서,
+                    -단순한 옵션추가, rootDir : __dirname
+            C.validator의 함수의 내부 로직이 잘 못되어, url에 대한 정확한 검증을 하지 못하는 점에 대해서,
+                -원형의 코드를 다시 불러옴. (1, " - 1개 삭제, 2. &를 $로 대체함)
