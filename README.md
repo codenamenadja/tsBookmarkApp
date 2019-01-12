@@ -155,3 +155,8 @@
                     -단순한 옵션추가, rootDir : __dirname
             C.validator의 함수의 내부 로직이 잘 못되어, url에 대한 정확한 검증을 하지 못하는 점에 대해서,
                 -원형의 코드를 다시 불러옴. (1, " - 1개 삭제, 2. &를 $로 대체함)
+
+        13.grunt - Task runner의 생성 결과물
+            -기본적으로 TS를 컴파일 하여 js화
+            -webpack을 통해서 client-side app을 번들링
+            -파일들 최종 추가되고, 실행에 이상없음
