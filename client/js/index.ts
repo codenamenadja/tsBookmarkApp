@@ -20,11 +20,11 @@ namespace Main.IndexPage {
         });
 
         $('#btnSave').on("click", function () {
-            if (validator.isURL($('#siteURL').val())) {
+            if (validator.isURL($('#siteURL').val().toString())) {
 
-                let siteTitle = $("#siteTitle").val();
-                let siteIntro = $("#siteIntro").val();
-                let siteURL = $("#siteURL").val();
+                let siteTitle = $("#siteTitle").val().toString();
+                let siteIntro = $("#siteIntro").val().toString();
+                let siteURL = $("#siteURL").val().toString();
                 let inputItem: Item = { title: siteTitle, intro: siteIntro, url: siteURL };
 
                 $.post("/add", { item: inputItem }, function (data: Iresponse.IresponseItem) {

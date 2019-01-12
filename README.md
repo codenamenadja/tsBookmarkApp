@@ -138,3 +138,11 @@
             A.html파일은 서버에 접속시 배포되는 ejs템플렛을 이용
             B.대응하는 jquery-logic index.ts로 설정
             C.css, bootstrap.min 추가
+        
+        11.grunt를 이용한 자동 컴파일 환경 구축(gruntfile.js)
+            A.배포를 위한 단계별 작업
+                1.Typescipt 컴파일
+                2.정적자원(css,img,template) 배포 디렉터리로 복사
+                3.번들링(웹팩 어플리케이션 컴파일 후 번들링후 dist에 저장)
+                4.어플리케이션  실행(브라우저 콘솔, 서버CLI를 통한 디버깅)
+        
